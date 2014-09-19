@@ -1,6 +1,6 @@
-# React Kit
+# Heroku Kit
 
-A starting point for creating apps with React
+A starting point for creating apps on Heroku with Bootstrap & PHP
 
 ## Build
 
