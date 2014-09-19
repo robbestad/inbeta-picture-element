@@ -27,7 +27,7 @@ function getUserIP()
             return $_SERVER['HTTP_X_FORWARDED_FOR'];
         }
     } else {
-        return $_SERVER['REMOTE_ADDR'];
+        return @$_SERVER['REMOTE_ADDR'];
     }
 }
 
@@ -62,7 +62,7 @@ if ($details->country === "NO") {
     <div class="jumbotron">
         <?php if ($details->country === "NO") { ?>
         <p>
-            Fra en bloggartikkel på
+            Les også bloggartikkelen på
             <a href="http://www.inbeta.no/?p=928">Inbeta.no</a></p>
 
         </p>
@@ -77,7 +77,8 @@ if ($details->country === "NO") {
                 you either a <strong>SMALL</strong>, <strong>MEDIUM</strong> or <strong>HIRES</strong> version
                 of Rembrandt's self portrait (image released with Creative Commons license).</p>
 
-            <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. If you
+            <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. Try
+                activting If you
                 see any of the others, try scaling the page up or down to see the image change dynamically.
                 This is not done with CSS & media queries, but is done within the confines of the new element.</p>
         <?php } ?>
@@ -88,7 +89,7 @@ if ($details->country === "NO") {
             <picture>
                 <source media="(min-width: 45em)" srcset="img/large.jpg">
                 <source media="(min-width: 32em)" srcset="img/med.jpg">
-                <img src="img/small.jpg" width="300" height="363" alt="Rembrandt - selvportrett.">
+                <img src="img/small.jpg" width="300" height="363" alt="Rembrandt - selvportrett">
             </picture>
         </div>
         <div class="col-md-6 col-xs-12">
@@ -101,7 +102,7 @@ if ($details->country === "NO") {
     srcset=&quot;img/med.jpg&quot;&gt;
 &lt;img src=&quot;img/small.jpg&quot;
     width=&quot;300&quot; height=&quot;363&quot;
-    alt=&quot;Rembrandt - selvportrett.&quot;&gt;
+    alt=&quot;Rembrandt - selvportrett&quot;&gt;
 &lt;/picture&gt;
 </pre>
             <?php if ($details->country !== "NO") { ?>
@@ -110,8 +111,13 @@ if ($details->country === "NO") {
             <?php } ?>
         </div>
     </div>
-</div>
 
+    <div id="footer">
+
+        Copyright &copy; <?php echo date("Y"); ?> - Sven Anders Robbestad - License: CC 
+    </div>
+
+</div>
 <!-- /div.container -->
 
 </body>

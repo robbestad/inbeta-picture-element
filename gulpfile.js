@@ -164,6 +164,7 @@ gulp.task('watch', function () {
     gulp.watch(paths.scripts, ['javascript']);
     gulp.watch(paths.jsx, ['javascript']);
     gulp.watch(paths.scss, ['css']);
+    gulp.watch('src/scss/**/*', ['css']);
     gulp.watch(paths.html, ['html']);
     gulp.watch(paths.php, ['php2html']);
     gulp.watch(paths.phpscripts, ['phpscripts']);
@@ -172,5 +173,6 @@ gulp.task('watch', function () {
 
 // gulp main tasks
 gulp.task('default', ['css','javascript','images','jslibs','phpscripts']);
+gulp.task('watcher', ['watch', 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts']);
 gulp.task('serve', ['watch', 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'webserver']);
 gulp.task('git-deploy', [ 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'heroku']);
