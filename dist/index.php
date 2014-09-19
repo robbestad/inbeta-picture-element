@@ -20,15 +20,26 @@ echo "{$details->city}, {$details->country}";
         <h1>Picture element demo</h1>
 
 
+        <?php if ($details->country === "NO") { ?>
+            <p> Fra en bloggartikkel på Inbeta.no</p>
+            <p>
+                Hvis du ser bildet med SMALL printet øverst til høyre, støtter ikke din nettleser det nye
+                picture-elementet. Dersom du ser HIRES eller MEDIUM, så skaler websiden opp eller ned for å se at den
+                endrer seg dynamisk. Dette er ikke gjort i CSS, men innenfor rammene til det nye elementet i
+                HTML-standarden.
+            </p>
 
-        <p>This demo shows you whether your browser supports the new <em>picture</em>-element, and will show
-        you either a <strong>SMALL</strong>, <strong>MEDIUM</strong> or <strong>HIRES</strong> version
-        of Rembrandt's self portrait (image released with Creative Commons license).</p>
+        <?php } else { ?>
 
-        <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. If you
-        see any of the others, try scaling the page up or down to see the image change dynamically.
-        This is not done with CSS & media queries, but is done within the confines of the new element.</p>
+            <p>This demo shows you whether your browser supports the new <em>picture</em>-element, and will show
+                you either a <strong>SMALL</strong>, <strong>MEDIUM</strong> or <strong>HIRES</strong> version
+                of Rembrandt's self portrait (image released with Creative Commons license).</p>
 
+            <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. If you
+                see any of the others, try scaling the page up or down to see the image change dynamically.
+                This is not done with CSS & media queries, but is done within the confines of the new element.</p>
+
+        <?php } ?>
 
         <picture>
             <source media="(min-width: 45em)" srcset="img/large.jpg">

@@ -21,7 +21,9 @@ echo "{$details->city}, {$details->country}";
 
 
         <?php if ($details->country === "NO") { ?>
-            <p> Fra en bloggartikkel på Inbeta.no</p>
+            <p>
+                Fra en bloggartikkel på Inbeta.no
+            </p>
             <p>
                 Hvis du ser bildet med SMALL printet øverst til høyre, støtter ikke din nettleser det nye
                 picture-elementet. Dersom du ser HIRES eller MEDIUM, så skaler websiden opp eller ned for å se at den
