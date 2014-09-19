@@ -120,7 +120,7 @@ if ($details->country === "NO") {
 
     <div id="footer">
 
-        Copyright &copy; <?php echo date("Y"); ?> - Sven Anders Robbestad - License: CC
+        Copyright &copy; <?php echo date("Y"); ?> - Sven Anders Robbestad - License: CC - Source: <a href="https://github.com/svenanders/inbeta-picture-element">github.com</a>
     </div>
 
 </div>
