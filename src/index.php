@@ -25,7 +25,7 @@ echo "{$details->city}, {$details->country}";
 <p>
     Hvis du ser bildet med SMALL printet øverst til høyre, støtter ikke din nettleser det nye picture-elementet. Dersom du ser HIRES eller MEDIUM, så skaler websiden opp eller ned for å se at den endrer seg dynamisk. Dette er ikke gjort i CSS, men innenfor rammene til det nye elementet i HTML-standarden.
 </p>
-    
+
 <?php } else { ?>
 
         <p>This demo shows you whether your browser supports the new <em>picture</em>-element, and will show
