@@ -42,10 +42,12 @@ if ($details->country === "NO") {
     $l_hjem = "Hjem";
     $l_om = "Om";
     $l_kontakt = "Kontakt";
+    $l_kode = "Kode";
 } else {
     $l_hjem = "Home";
     $l_om = "About";
     $l_kontakt = "Contact";
+    $l_kode = "Code";
 }
 ?>
 
@@ -97,7 +99,7 @@ if ($details->country === "NO") {
             </picture>
         </div>
         <div class="col-md-6 col-xs-12">
-            <p><strong>Kode:</strong></p>
+            <p><strong><?php echo $l_kode; ?>:</strong></p>
 <pre>
 &lt;picture&gt; 
 &lt;source media=&quot;(min-width: 45em)&quot;
