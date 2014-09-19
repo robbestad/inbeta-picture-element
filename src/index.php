@@ -70,7 +70,8 @@ if ($details->country === "NO") {
             Hvis du ser bildet med SMALL printet øverst til høyre, støtter ikke din nettleser det nye
             picture-elementet. Dersom du ser HIRES eller MEDIUM, så skaler websiden opp eller ned for å se at den
             endrer seg dynamisk. Dette er ikke gjort i CSS, men innenfor rammene til det nye elementet i
-            HTML-standarden.
+            <a href="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#the-picture-element">
+                HTML-standarden</a>.
         </p>
         <?php } else { ?>
             <p>This demo shows you whether your browser supports the new <em>picture</em>-element, and will show
@@ -78,7 +79,10 @@ if ($details->country === "NO") {
                 of Rembrandt's self portrait (image is released through a Creative Commons license).</p>
 
             <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. (Your best bet
-                at the moment is Chrome Canary.)
+                at the moment is Chrome Canary, but have a look at <a href="http://caniuse.com/#search=picture">this page
+                    </a> to check the time table for when it will be supported. The element is in the <a
+                    href="http://www.w3.org/html/wg/drafts/html/master/embedded-content.html#the-picture-element">
+                    HTML standard</a>, so all browser will eventually support it.)
                 If you see any of the others, try scaling the page up or down to see the image change dynamically.
                 This is not done with CSS & media queries, but is done within the confines of the new element.</p>
         <?php } ?>

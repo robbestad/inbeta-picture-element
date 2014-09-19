@@ -75,11 +75,11 @@ if ($details->country === "NO") {
         <?php } else { ?>
             <p>This demo shows you whether your browser supports the new <em>picture</em>-element, and will show
                 you either a <strong>SMALL</strong>, <strong>MEDIUM</strong> or <strong>HIRES</strong> version
-                of Rembrandt's self portrait (image released with Creative Commons license).</p>
+                of Rembrandt's self portrait (image is released through a Creative Commons license).</p>
 
-            <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. Try
-                activting If you
-                see any of the others, try scaling the page up or down to see the image change dynamically.
+            <p>If you see the <strong>SMALL</strong> image, your browser doesn't support the element yet. (Your best bet
+                at the moment is Chrome Canary.)
+                If you see any of the others, try scaling the page up or down to see the image change dynamically.
                 This is not done with CSS & media queries, but is done within the confines of the new element.</p>
         <?php } ?>
     </div>
@@ -114,7 +114,7 @@ if ($details->country === "NO") {
 
     <div id="footer">
 
-        Copyright &copy; <?php echo date("Y"); ?> - Sven Anders Robbestad - License: CC 
+        Copyright &copy; <?php echo date("Y"); ?> - Sven Anders Robbestad - License: CC
     </div>
 
 </div>
