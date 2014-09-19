@@ -38,7 +38,7 @@ echo "<!--";
 var_dump($details);
 echo "-->";
 
-if ($details->country === "NO") {
+if (@$details->country === "NO") {
     $l_hjem = "Hjem";
     $l_om = "Om";
     $l_kontakt = "Kontakt";
@@ -58,11 +58,12 @@ if ($details->country === "NO") {
             <li><a href="http://www.robbestad.com"><?php echo $l_om; ?></a></li>
             <li><a href="mailto:anders@robbestad.com"><?php echo $l_kontakt; ?></a></li>
         </ul>
-        <h3 class="text-muted">Picture element demo</h3>
+        <h3 class="text-muted">Picture Element Demo</h3>
     </div>
 
     <div class="jumbotron">
-        <?php if ($details->country === "NO") { ?>
+        <div id="content">Some content</div>
+        <?php if (@$details->country === "NO") { ?>
         <p>
             Les også bloggartikkelen på
             <a href="http://www.inbeta.no/?p=928">Inbeta.no</a></p>
@@ -111,7 +112,7 @@ if ($details->country === "NO") {
     alt=&quot;Rembrandt - selvportrett&quot;&gt;
 &lt;/picture&gt;
 </pre>
-            <?php if ($details->country !== "NO") { ?>
+            <?php if (@$details->country !== "NO") { ?>
                 <p>Note: This demo is based on a blog article found at
                     <a href="http://www.inbeta.no/?p=928">Inbeta.no</a></p>
             <?php } ?>
@@ -127,7 +128,5 @@ if ($details->country === "NO") {
 <!-- /div.container -->
 
 </body>
-<!-- Contains jQuery, React and various plugins -->
-<script type="text/javascript" src="./js/libs.min.js"></script>
-<!-- Contains compiled js (included jsx) -->
+<!-- Contains jQuery, React and compiled js (included jsx) -->
 <script type="text/javascript" src="./js/scripts.min.js"></script>
