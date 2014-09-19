@@ -95,7 +95,7 @@ if ($details->country === "NO") {
             <picture>
                 <source media="(min-width: 45em)" srcset="img/large.jpg">
                 <source media="(min-width: 32em)" srcset="img/med.jpg">
-                <img src="img/small.jpg" width="300" height="363" alt="Rembrandt - selvportrett">
+                <img src="img/small.jpg" width="300" height="363" alt="Rembrandt">
             </picture>
         </div>
         <div class="col-md-6 col-xs-12">
