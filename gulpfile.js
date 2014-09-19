@@ -172,6 +172,6 @@ gulp.task('watch', function () {
 });
 
 // gulp main tasks
-gulp.task('default', ['css','javascript','php2html','images','jslibs','phpscripts']);
-gulp.task('serve', ['watch', 'php2html', 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'webserver']);
-gulp.task('git-deploy', ['php2html', 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'heroku']);
+gulp.task('default', ['css','javascript','images','jslibs','phpscripts']);
+gulp.task('serve', ['watch', 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'webserver']);
+gulp.task('git-deploy', [ 'css', 'fonts', 'javascript', 'images', 'jslibs', 'jsx', 'phpscripts', 'heroku']);
