@@ -36,7 +36,9 @@ echo "<!--"; var_dump($details); echo "-->";
 
         <?php if ($details->country === "NO") { ?>
             <p>
-                Fra en bloggartikkel på Inbeta.no
+                Fra en bloggartikkel på
+                <a href="http://www.inbeta.no/?p=928">Inbeta.no</a></p>
+
             </p>
             <p>
                 Hvis du ser bildet med SMALL printet øverst til høyre, støtter ikke din nettleser det nye
@@ -71,10 +73,10 @@ echo "<!--"; var_dump($details); echo "-->";
 &lt;img src=&quot;img/small.jpg&quot; width=&quot;300&quot; height=&quot;363&quot; alt=&quot;Rembrandt - selvportrett.&quot;&gt; 
 &lt;/picture&gt;
 </pre>
-
+        <?php if ($details->country !== "NO") { ?>
         <p>Note: This demo is based on a blog article found at
             <a href="http://www.inbeta.no/?p=928">Inbeta.no</a></p>
-
+        <?php } ?>
     </div>
 </div>
 
