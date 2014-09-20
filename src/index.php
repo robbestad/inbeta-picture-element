@@ -129,5 +129,5 @@ if (@$details->country === "NO") {
 
 </body>
 <!-- Contains jQuery, React and compiled js (included jsx) -->
-<script type="text/javascript" src="./js/lib.js"></script>
+<script type="text/javascript" src="./js/libs.min.js"></script>
 <script type="text/javascript" src="./js/app.js"></script>
