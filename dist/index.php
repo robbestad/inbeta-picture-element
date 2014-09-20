@@ -102,7 +102,7 @@ if (@$details->country === "NO") {
         <div class="col-md-6 col-xs-12">
             <p><strong><?php echo $l_kode; ?>:</strong></p>
 <pre>
-&lt;picture&gt; 
+&lt;picture&gt;
 &lt;source media=&quot;(min-width: 45em)&quot;
     srcset=&quot;img/large.jpg&quot;&gt;
 &lt;source media=&quot;(min-width: 32em)&quot;
@@ -129,4 +129,5 @@ if (@$details->country === "NO") {
 
 </body>
 <!-- Contains jQuery, React and compiled js (included jsx) -->
-<script type="text/javascript" src="./js/scripts.min.js"></script>
+<script type="text/javascript" src="./js/lib.js"></script>
+<script type="text/javascript" src="./js/app.js"></script>

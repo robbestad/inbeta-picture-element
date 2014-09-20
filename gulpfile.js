@@ -13,6 +13,7 @@ var gulp = require('gulp'),
     imagemin = require('gulp-imagemin'),
     del = require('del'),
     notify = require("gulp-notify"),
+    sourcemaps = require("gulp-sourcemaps"),
     pngcrush = require('imagemin-pngcrush'),
     react = require('gulp-react'),
     browserSync = require('browser-sync'),
@@ -24,11 +25,11 @@ var gulp = require('gulp'),
     shell = require('gulp-shell');
 
 var paths = {
-    scripts: './.build/js/**/*',
+    scripts: ['./.build/js/libs.js', './.build/js/app.js'],
     jslibs: [
-        'bower_components/jquery/dist/jquery.min.js',
-        'bower_components/react/react.min.js',
-        'bower_components/bootstrap/dist/js/bootstrap.min.js'
+        'bower_components/jquery/dist/jquery.js',
+        //'bower_components/react/react.js',
+        'bower_components/bootstrap/dist/js/bootstrap.js'
     ],
     images: 'src/img/**/*',
     jsx: './src/jsx/app.jsx',
@@ -49,15 +50,7 @@ var paths = {
     ]
 };
 
-gulp.task('jsx', function () {
-    browserify(paths.jsx)
-        .transform(reactify)
-        .bundle()
-        .pipe(source(paths.bundle))
-        .pipe(buffer())
-        .pipe(uglify())
-        .pipe(gulp.dest(paths.buildJs));
-});
+
 
 
 gulp.task('browserSync', function () {
@@ -68,27 +61,13 @@ gulp.task('browserSync', function () {
     })
 });
 
-
 gulp.task('clean', function (cb) {
-    del(['dist'], cb);
+    del(['dist', '.build'], cb);
 });
-/** BUILD **/
-gulp.task('build', ['clean'], function () {
-    process.env.NODE_ENV = 'production';
-    gulp.start(['buildify', 'styles', 'php', 'images']);
-});
-gulp.task('buildify', function () {
-    //browserify(paths.jsx)
-    //    .transform(reactify)
-    //    .bundle()
-    //    .pipe(source(paths.bundle))
-    //    .pipe(buffer())
-    //    .pipe(uglify())
-    //    .pipe(gulp.dest('src/js'));
-});
+
+
 
 gulp.task('styles', function () {
-
     (function () {
         return gulp.src(paths.scss)
             .pipe(changed(paths.distCss))
@@ -202,18 +181,31 @@ gulp.task('images', function () {
         .pipe(gulp.dest('./.build/img'));
 });
 
-// Copy all JavaScript files 2 dist
+// Cat the JavaScripts
 gulp.task('scripts', ['jsx','libs'], function () {
-    return gulp.src(paths.scripts)
-        .pipe(concat('scripts.min.js'))
-        .pipe(gulp.dest(paths.distJs));
+    return gulp.src(['.build/js/libs.js', '.build/js/app.js'])
+        .pipe( sourcemaps.init( { loadMaps: true } ) )
+        //.pipe(uglify())
+        .pipe( sourcemaps.write( './', { includeContent: false } ) )
+        .pipe(gulp.dest('./dist/js'));
 });
+
+
 
 // Copy all static libraries
 gulp.task('libs', function () {
     return gulp.src(paths.jslibs)
-        .pipe(concat('_libs.min.js'))
+        .pipe(concat('libs.js'))
         .pipe(gulp.dest('./.build/js'));
+});
+
+gulp.task('jsx', function () {
+    return browserify(paths.jsx)
+        .transform(reactify)
+        .bundle()
+        .pipe(source(paths.bundle))
+        //.pipe(buffer())
+        .pipe(gulp.dest(paths.buildJs));
 });
 
 gulp.task('heroku', shell.task([
@@ -224,13 +216,16 @@ gulp.task('heroku', shell.task([
 
 // Rerun the task when a file changes
 gulp.task('watch4changes', function () {
-    gulp.watch('./src/jsx/**/*', ['scripts']);
+    gulp.watch('src/jsx/**/*', ['jsx']);
+    gulp.watch('.build/js/app.js', ['scripts']);
     gulp.watch(paths.php, ['php']);
     gulp.watch(paths.images, ['images']);
 });
 
 // gulp main tasks
-gulp.task('default', ['css', 'scripts', 'images', 'jslibs', 'php']);
-gulp.task('push', ['styles', 'scripts', 'libs', 'php', 'images', 'heroku']);
-gulp.task('watch', [ 'styles', 'scripts', 'php', 'images', 'watch4changes', 'watchify']);
-gulp.task('watch_', function () { gulp.start([ 'styles', 'scripts', 'php', 'images', 'watch4changes', 'watchify']); });
+gulp.task('default', ['styles','jsx', 'php', 'images', 'scripts']);
+gulp.task('push', ['default', 'heroku']);
+gulp.task('watch', ['watch4changes','default']);
+gulp.task('watch_', function () {
+    gulp.start(['styles', 'jsx', 'libs', 'php', 'images', 'scripts','watchify','watch4changes']);
+});

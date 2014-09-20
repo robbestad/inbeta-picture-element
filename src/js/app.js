@@ -18676,7 +18676,7 @@ var React = require('react'),
     Mycomponent = React.createClass({displayName: 'Mycomponent',
       render: function() {
         return (
-          React.DOM.h1({className: "Mycomponent"}, "Picture Element Demo")
+          React.DOM.h1({className: "Mycomponent"}, "Picture Elements are great")
         )
       }
     });
