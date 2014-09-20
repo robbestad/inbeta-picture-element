@@ -28,7 +28,7 @@ var paths = {
     scripts: ['./.build/js/libs.js', './.build/js/app.js'],
     jslibs: [
         'bower_components/jquery/dist/jquery.js',
-        'bower_components/react/react.js',
+        //'bower_components/react/react.js',
         'bower_components/bootstrap/dist/js/bootstrap.js'
     ],
     images: 'src/img/**/*',

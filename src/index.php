@@ -58,11 +58,11 @@ if (@$details->country === "NO") {
             <li><a href="http://www.robbestad.com"><?php echo $l_om; ?></a></li>
             <li><a href="mailto:anders@robbestad.com"><?php echo $l_kontakt; ?></a></li>
         </ul>
-        <h3 class="text-muted">Picture Element Demo</h3>
+        <h3 class="text-muted" id="content">Headline</h3>
     </div>
 
     <div class="jumbotron">
-        <div id="content">Some content</div>
+
         <?php if (@$details->country === "NO") { ?>
         <p>
             Les også bloggartikkelen på
@@ -96,12 +96,11 @@ if (@$details->country === "NO") {
             <picture>
                 <source media="(min-width: 45em)" srcset="img/large.jpg">
                 <source media="(min-width: 32em)" srcset="img/med.jpg">
-                <img src="img/small.jpg" width="300" height="363" alt="Rembrandt">
+                <img src="img/small.jpg" alt="Rembrandt" class="img img-responsive">
             </picture>
         </div>
         <div class="col-md-6 col-xs-12">
-            <p><strong><?php echo $l_kode; ?>:</strong></p>
-<pre>
+<pre><?php echo $l_kode; ?>:
 &lt;picture&gt;
 &lt;source media=&quot;(min-width: 45em)&quot;
     srcset=&quot;img/large.jpg&quot;&gt;
